@@ -31,11 +31,11 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'faraday', '~> 0.9.2'
 
-  spec.add_development_dependency 'bundler', '~> 2.1.4'
+  spec.add_development_dependency 'bundler', '~> 1.17.3'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 1.7'
   spec.add_development_dependency 'rubocop-performance', '>= 1.4.1'
-  spec.add_development_dependency 'simplecov', '~> 0.21.2'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
 end
