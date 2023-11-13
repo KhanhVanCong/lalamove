@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency 'activesupport', '>= 4', '< 7'
-  spec.add_dependency 'dry-struct', '~> 1.4.0'
-  spec.add_dependency 'dry-types', '~> 1.5.1'
+  spec.add_dependency 'dry-struct', '~> 0.7.0'
+  spec.add_dependency 'dry-types', '~> 0.15.0'
 
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'faraday', '~> 0.9.2'
