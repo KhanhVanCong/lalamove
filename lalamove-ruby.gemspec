@@ -27,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '>= 4', '< 7'
   spec.add_dependency 'dry-struct', '~> 0.7.0'
   spec.add_dependency 'dry-types', '~> 0.15.0'
-  spec.add_dependency 'active_service', github: 'khanhvancong/active_service'
 
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'faraday', '~> 0.9.2'
+  spec.add_runtime_dependency 'active_service'
 
   spec.add_development_dependency 'bundler', '~> 1.17.3'
   spec.add_development_dependency 'pry'
