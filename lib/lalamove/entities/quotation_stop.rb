@@ -3,7 +3,7 @@
 module Lalamove
   module Entities
     class QuotationStop < Base
-      attribute :location, QuotationLocation.meta(omittable: true)
+      attribute :coordinates, QuotationLocation.meta(omittable: true)
       attribute :address, Types::String
     end
   end

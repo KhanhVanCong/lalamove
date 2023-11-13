@@ -7,7 +7,8 @@ module Lalamove
         @params = params
         @stock_location = params[:stock_location]
         @orders = params[:orders].to_a
-        @service_type = params[:service_type] || 'LALAGO'
+        @service_type = params[:service_type] || "MOTORCYCLE"
+        @schedule_at = params[:schedule_at]
       end
 
       def perform
@@ -16,24 +17,26 @@ module Lalamove
 
       private
 
-      attr_reader :params, :stock_location, :orders, :service_type
+      attr_reader :params, :stock_location, :orders, :service_type, :schedule_at
 
       def process
         Lalamove::Services::QuotationService.perform!(payload)
       end
 
-      def long_address(address)
-        "#{address[:address1]}, #{address[:house_number]}, #{address[:address2]} "\
-        "- #{address[:neighborhood]}, #{address[:city]} - #{address[:state]}, "\
-        "#{address[:zipcode]}, Brazil"
+      def stop(location)
+        {
+          coordinates: { lat: location[:lat],
+                         lng: location[:long] },
+          address: location[:address]
+        }
       end
 
       def delivery_stops
         stops = []
-        stops << { address: stock_location[:address1] }
+        stops << stop(stock_location)
 
         orders.each do |order|
-          stops << { address: long_address(order[:shipping_address]) }
+          stops << stop(order)
         end
 
         stops
@@ -44,7 +47,8 @@ module Lalamove
           language: Lalamove.configuration.country,
           serviceType: service_type,
           stops: delivery_stops,
-          specialRequests: []
+          specialRequests: [],
+          scheduleAt: schedule_at.present? ? Time.zone.parse(schedule_at).utc.iso8601 : ""
         }
       end
     end
