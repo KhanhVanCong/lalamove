@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A Lalamove ruby client'
   spec.description   = 'A Lalamove ruby client'
-  spec.homepage      = 'https://https://github.com/petlove/lalamove-ruby'
+  spec.homepage      = 'https://https://github.com/khanhvancong/lalamove'
   spec.license       = 'MIT'
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '>= 4', '< 7'
   spec.add_dependency 'dry-struct', '~> 0.7.0'
   spec.add_dependency 'dry-types', '~> 0.15.0'
+  spec.add_dependency 'active_service', github: 'khanhvancong/active_service'
 
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'faraday', '~> 0.9.2'
