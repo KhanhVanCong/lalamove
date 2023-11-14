@@ -11,6 +11,10 @@ module Lalamove
         Lalamove::Resources::Quotation
       end
 
+      def quotation_detail
+        Lalamove::Resources::QuotationDetail
+      end
+
       def place_order
         Lalamove::Resources::PlaceOrder
       end
@@ -21,6 +25,10 @@ module Lalamove
 
       def order_detail
         Lalamove::Resources::OrderDetail
+      end
+
+      def get_city
+        Lalamove::Resources::CityInfo
       end
     end
   end
