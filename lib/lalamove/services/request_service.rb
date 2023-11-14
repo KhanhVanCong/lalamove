@@ -25,8 +25,8 @@ module Lalamove
           url: Lalamove.configuration.host,
           headers: headers,
           request: {
-            open_timeout: 5,
-            timeout: 10
+            open_timeout: 10,
+            timeout: 20
           }
         )
       end
@@ -60,10 +60,12 @@ module Lalamove
       end
 
       def failure(result)
+        result_body = parser(result.body)[:errors].first
+        message = result_body[:detail].blank? ? result_body[:message] : "#{result_body[:detail]} - #{result_body[:message]}"
         response(
-          errors: result.reason_phrase,
+          errors: result_body[:id],
           status: result.status,
-          message: parser(result.body)[:errors].first[:message]
+          message: message
         )
       end
     end
