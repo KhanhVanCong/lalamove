@@ -27,12 +27,7 @@ module Lalamove
         end
 
         def process
-          unless quotation.valid?
-            raise CustomException.new(ErrorCodes::ERROR_LIST[:LALAMOVE_QUOTATION_INVALID],
-                                      ErrorDescriptions::ERROR_LIST[:LALAMOVE_QUOTATION_INVALID]),
-                  ErrorDescriptions::ERROR_LIST[:LALAMOVE_QUOTATION_INVALID]
-          end
-
+          raise Lalamove::QuotationError.new(message: "Invalid Quotation") unless quotation.valid?
           creation
         end
 
@@ -61,7 +56,7 @@ module Lalamove
               stopId: delivery_stops_id[pos + 1],
               name: recipient[:name],
               phone: recipient[:phone],
-              remarks: "Booking Ref: #{recipient[:booking_id]}\r\nSender's Address Unit No: #{recipient[:sender_address_unit_no]}\r\nRecipient's Address Unit No: #{recipient[:recipient_address_unit_no]}"
+              remarks: recipient[:remarks]
             }
           end
         end
