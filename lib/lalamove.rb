@@ -4,6 +4,7 @@ require 'lalamove/version'
 
 require 'lalamove/configuration'
 require 'lalamove/client'
+require 'lalamove/errors'
 
 require 'active_service/base'
 require 'active_service/response'
