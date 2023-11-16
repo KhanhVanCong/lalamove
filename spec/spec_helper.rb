@@ -24,9 +24,10 @@ RSpec.configure do |config|
     Lalamove.configuration.production = false
     Lalamove.configuration.secret = ENV['SECRET']
     Lalamove.configuration.token = ENV['TOKEN']
-    Lalamove.configuration.country = 'pt_BR'
-    Lalamove.configuration.currency = 'BRL'
-    Lalamove.configuration.market = 'BR'
+    Lalamove.configuration.country = 'en_SG'
+    Lalamove.configuration.currency = 'SGD'
+    Lalamove.configuration.market = 'SG'
+    Time.zone = 'Singapore'
   end
 
   # Disable RSpec exposing methods globally on `Module` and `main`

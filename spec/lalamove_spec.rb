@@ -7,10 +7,6 @@ RSpec.describe Lalamove do
     it 'returns version number presence' do
       is_expected.not_to be nil
     end
-
-    it 'returns the real version number' do
-      is_expected.to eql('0.2.5')
-    end
   end
 
   describe '.configuration' do

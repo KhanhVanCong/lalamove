@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require 'simplecov_json_formatter'
+# require 'simplecov_json_formatter'
+require 'simplecov'
+require 'simplecov-json'
 
 module SimpleCovConfig
   def self.configure
@@ -15,5 +17,12 @@ module SimpleCovConfig
 
   def self.cover?(lines)
     !lines.detect { |line| line.src.match?(/(def |attributes)/) }
+  end
+end
+
+class String
+  def match?(pattern)
+    pattern = Regexp.new(Regexp.escape(pattern)) unless pattern.is_a?(Regexp)
+    !!(self =~ pattern)
   end
 end

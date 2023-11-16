@@ -3,10 +3,14 @@
 require 'spec_helper'
 
 RSpec.describe Lalamove::Resources::Quotation do
-  let(:payload) { params_from_json('order') }
+  let(:address_1) { { lat: "1.28041", long: "103.841", address: "1 Teo Hong Rd, Singapore 088321" } }
+  let(:destination_locations) { [address_1] }
+  let(:stock_location) { { lat: "1.35868", long: "103.834", address: "18 Sin Ming Lane" } }
 
   describe '#perform', :vcr do
-    subject { described_class.perform!(stock_location: payload[:stock_location], orders: [payload]) }
+    subject { described_class.perform!(stock_location: stock_location,
+                                       orders: destination_locations,
+                                       schedule_at: Date.today.next_day.strftime('%Y-%m-%d %H:%M SGT')) }
 
     context 'when success' do
       it 'returns a valid response' do

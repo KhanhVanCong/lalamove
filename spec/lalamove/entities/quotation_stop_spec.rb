@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe Lalamove::Entities::QuotationStop do
   let(:attributes) do
     {
-      location: {
+      coordinates: {
         lat: '13.740167',
         lng: '100.535237'
       },
@@ -15,5 +15,5 @@ RSpec.describe Lalamove::Entities::QuotationStop do
 
   subject { described_class.new(attributes) }
 
-  it_behaves_like 'entity_attributes', %i[location address]
+  it_behaves_like 'entity_attributes', %i[coordinates address]
 end

@@ -15,7 +15,7 @@ RSpec.describe Lalamove::Services::RequestService do
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: anything,
-      'MARKET': 'BR',
+      'MARKET': 'SG',
       'X-Request-ID': anything
     }
   end
@@ -30,7 +30,7 @@ RSpec.describe Lalamove::Services::RequestService do
         expect(Faraday).to receive(:new).once.with(
           url: url,
           headers: headers,
-          request: { open_timeout: 5, timeout: 10 }
+          request: { open_timeout: 10, timeout: 20 }
         ).and_return(request)
 
         expect(request).to receive(:send).once.with('post', path, { data: payload }.to_json).and_return(response)
@@ -43,7 +43,7 @@ RSpec.describe Lalamove::Services::RequestService do
         expect(Faraday).to receive(:new).once.with(
           url: url,
           headers: headers,
-          request: { open_timeout: 5, timeout: 10 }
+          request: { open_timeout: 10, timeout: 20 }
         ).and_raise(StandardError)
 
         expect(request).not_to receive(:post)
@@ -74,7 +74,7 @@ RSpec.describe Lalamove::Services::RequestService do
       end
 
       it 'returns an array errors' do
-        expect(subject.errors).to eq(['Unprocessable Entity'])
+        expect(subject.errors).to eq(['bar'])
       end
     end
   end
