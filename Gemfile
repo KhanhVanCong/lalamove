@@ -8,6 +8,7 @@ gem 'active_service', github: 'khanhvancong/active_service'
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'simplecov-json'
 end
 
 group :development do
