@@ -16,7 +16,7 @@ module Lalamove
       attr_reader :params
 
       def process
-        RequestService.perform!(action: :get, payload: nil , path: '/v3/cities')
+        RequestService.perform!(action: :get, payload: nil, path: '/v3/cities')
       end
     end
   end

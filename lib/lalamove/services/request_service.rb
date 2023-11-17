@@ -62,7 +62,7 @@ module Lalamove
       def failure(result)
         result_body = parser(result.body)[:errors].first
         message = result_body.key?(:detail) ? "#{result_body[:detail]} - #{result_body[:message]}" : result_body[:message]
-          response(
+        response(
           errors: result_body[:id],
           status: result.status,
           message: message

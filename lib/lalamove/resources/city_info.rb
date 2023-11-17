@@ -8,9 +8,10 @@ module Lalamove
       end
 
       private
-        def process
-          Lalamove::Services::CityInfoService.perform!()
-        end
+
+      def process
+        Lalamove::Services::CityInfoService.perform!
+      end
     end
   end
 end

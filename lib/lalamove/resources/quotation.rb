@@ -7,7 +7,7 @@ module Lalamove
         @params = params
         @stock_location = params[:stock_location]
         @orders = params[:orders].to_a
-        @service_type = params[:service_type] || "MOTORCYCLE"
+        @service_type = params[:service_type] || 'MOTORCYCLE'
         @schedule_at = params[:schedule_at]
       end
 
@@ -48,7 +48,7 @@ module Lalamove
           serviceType: service_type,
           stops: delivery_stops,
           specialRequests: [],
-          scheduleAt: schedule_at.present? ? Time.zone.parse(schedule_at).utc.iso8601 : ""
+          scheduleAt: schedule_at.present? ? Time.zone.parse(schedule_at).utc.iso8601 : ''
         }
       end
     end

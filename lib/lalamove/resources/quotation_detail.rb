@@ -13,11 +13,11 @@ module Lalamove
 
       private
 
-        attr_reader :quotation_id
+      attr_reader :quotation_id
 
-        def process
-          Lalamove::Services::QuotationDetailService.perform!(quotation_id)
-        end
+      def process
+        Lalamove::Services::QuotationDetailService.perform!(quotation_id)
+      end
     end
   end
 end

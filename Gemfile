@@ -6,9 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'active_service', github: 'khanhvancong/active_service'
 
 group :test do
+  gem 'simplecov-json'
   gem 'vcr'
   gem 'webmock'
-  gem 'simplecov-json'
 end
 
 group :development do
